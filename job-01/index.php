@@ -1,5 +1,5 @@
 <?php
-require 'Product.php';
+require './Product.php';
 
 $product = new Product(
     1,

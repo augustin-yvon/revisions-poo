@@ -47,31 +47,33 @@ class Category
        return $this->updatedAt;
     }
 
-    public function setId(int $id): void
+    public function setId(int $id): Category
     {
         $this->id = $id;
+        return $this;
     }
 
-    public function setName(string $name): void
+    public function setName(string $name): Category
     {
-       $this->name = $name;
+        $this->name = $name;
+        return $this;
     }
 
-    public function setDescription(string $description): void
+    public function setDescription(string $description): Category
     {
-       $this->description = $description;
+        $this->description = $description;
+        return $this;
     }
 
-    public function setUpdatedAt(DateTime $updatedAt): void
+    public function setCreatedAt(DateTime $createdAt): Category
     {
-       $this->updatedAt = $updatedAt;
+        $this->createdAt = $createdAt;
+        return $this;
     }
 
-    public function setCreatedAt(DateTime $createdAt): void
+    public function setUpdatedAt(DateTime $updatedAt): Category
     {
-       $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
+        return $this;
     }
-
-
-
 }
