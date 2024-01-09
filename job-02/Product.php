@@ -1,12 +1,10 @@
 <?php
-
-
 class Product
 {
     private int $id;
     private string $name;
     private array $photos;
-    private float $price;
+    private int $price;
     private string $description;
     private int $quantity;
     private DateTime $createdAt;
@@ -14,17 +12,16 @@ class Product
     private int $category_id;
 
     public function __construct(
-        int      $id,
-        string   $name,
-        array    $photos,
-        float    $price,
-        string   $description,
-        int      $quantity,
+        int $id,
+        string $name,
+        array $photos,
+        int $price,
+        string $description,
+        int $quantity,
         DateTime $createdAt,
         DateTime $updatedAt,
-        int      $category_id
-    )
-    {
+        int $category_id
+    ) {
         $this->id = $id;
         $this->name = $name;
         $this->photos = $photos;
@@ -51,7 +48,7 @@ class Product
         return $this->photos;
     }
 
-    public function getPrice(): float
+    public function getPrice(): int
     {
         return $this->price;
     }

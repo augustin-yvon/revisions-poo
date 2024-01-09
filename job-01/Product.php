@@ -1,11 +1,10 @@
 <?php
-
 class Product
 {
     private int $id;
     private string $name;
     private array $photos;
-    private float $price;
+    private int $price;
     private string $description;
     private int $quantity;
     private DateTime $createdAt;
@@ -15,7 +14,7 @@ class Product
         int $id,
         string $name,
         array $photos,
-        float $price,
+        int $price,
         string $description,
         int $quantity,
         DateTime $createdAt,
@@ -46,7 +45,7 @@ class Product
         return $this->photos;
     }
 
-    public function getPrice(): float
+    public function getPrice(): int
     {
         return $this->price;
     }
