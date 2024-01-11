@@ -102,7 +102,7 @@ class Product
             $products[] = new Product(
                 $productData['id'],
                 $productData['name'],
-                $productData['photos'],
+                $productData['photos'] = json_decode($productData['photos'], true),
                 $productData['price'],
                 $productData['description'],
                 $productData['quantity'],

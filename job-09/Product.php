@@ -2,6 +2,7 @@
 require_once './Database.php';
 class Product
 {
+
     private null|int $id;
     private string $name;
     private array|string $photos;
@@ -73,7 +74,7 @@ class Product
             return new Product(
                 $productData['id'],
                 $productData['name'],
-                $productData['photos'],
+                $productData['photos'] = json_decode($productData['photos'], true),
                 $productData['price'],
                 $productData['description'],
                 $productData['quantity'],
@@ -102,7 +103,7 @@ class Product
             $products[] = new Product(
                 $productData['id'],
                 $productData['name'],
-                $productData['photos'],
+                $productData['photos'] = json_decode($productData['photos'], true),
                 $productData['price'],
                 $productData['description'],
                 $productData['quantity'],
@@ -122,7 +123,7 @@ class Product
         $query = "INSERT INTO product (name, photos, price, description, quantity, createdAt, updatedAt, categoryId) VALUES (:name, :photos, :price, :description, :quantity, :createdAt, :updatedAt, :categoryId)";
         $stmt = $pdo->prepare($query);
         $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
-        $stmt->bindValue(':photos', $this->photos, PDO::PARAM_STR);
+        $stmt->bindValue(':photos', json_encode($this->photos), PDO::PARAM_STR);
         $stmt->bindValue(':price', $this->price, PDO::PARAM_INT);
         $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
         $stmt->bindValue(':quantity', $this->quantity, PDO::PARAM_INT);
@@ -135,7 +136,7 @@ class Product
         $lastInsertStmt = $pdo->prepare($lastInsertQuery);
         $lastInsertStmt->execute();
         $id = $lastInsertStmt->fetch(PDO::FETCH_ASSOC);
-        $this->setId($id);
+        $this->setId($id['id']);
 
         return $this;
     }
