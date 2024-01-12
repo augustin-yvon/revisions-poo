@@ -45,4 +45,48 @@ class Clothing extends Product
         $this->product_id = $product_id;
         return $this;
     }
+
+    public function getSize(): string
+    {
+        return $this->size;
+    }
+
+    public function setSize(string $size): Clothing
+    {
+        $this->size = $size;
+        return $this;
+    }
+
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): Clothing
+    {
+        $this->color = $color;
+        return $this;
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): Clothing
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    public function getMaterial_fee(): int
+    {
+        return $this->material_fee;
+    }
+
+    public function setMaterial_fee(int $material_fee): Clothing
+    {
+        $this->material_fee = $material_fee;
+        return $this;
+    }
 }

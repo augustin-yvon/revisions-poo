@@ -1,6 +1,6 @@
 <?php
 
-class Clothing extends Product
+class Electronic extends Product
 {
     private string $brand;
     private int $waranty_fee;
@@ -35,9 +35,31 @@ class Clothing extends Product
         return $this->product_id;
     }
 
-    public function setProduct_id(int $product_id): Clothing
+    public function setProduct_id(int $product_id): Electronic
     {
         $this->product_id = $product_id;
+        return $this;
+    }
+
+    public function getBrand(): string
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(string $brand): Electronic
+    {
+        $this->brand = $brand;
+        return $this;
+    }
+
+    public function getWaranty_fee(): int
+    {
+        return $this->waranty_fee;
+    }
+
+    public function setWaranty_fee(int $waranty_fee): Electronic
+    {
+        $this->waranty_fee = $waranty_fee;
         return $this;
     }
 }
