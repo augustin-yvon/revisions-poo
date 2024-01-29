@@ -1,6 +1,7 @@
 <?php
 require_once './Database.php';
 require_once './AbstractProduct.php';
+require_once './StockableInterface.php';
 
 class Electronic extends AbstractProduct
 {
@@ -27,6 +28,18 @@ class Electronic extends AbstractProduct
         $this->brand = $brand;
         $this->warranty_fee = $warranty_fee;
         $this->product_id = $product_id;
+    }
+
+    public function addStocks(int $stock): self {
+        $quantity = $this->getQuantity();
+        $this->setQuantity($quantity + $stock);
+        return $this;
+    }
+
+    public function removeStocks(int $stock): self {
+        $quantity = $this->getQuantity();
+        $this->setQuantity(max(0, $quantity - $stock)); // Pas de stock négatif
+        return $this;
     }
 
     public function findOneById(int $id): false|Electronic

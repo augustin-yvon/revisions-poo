@@ -36,6 +36,11 @@ abstract class AbstractProduct extends Database
         $this->category_id = $category_id;
     }
 
+    abstract public function findOneById(int $id): false|AbstractProduct;
+    abstract public function findAll(): array;
+    abstract public function create(): false|AbstractProduct;
+    abstract public function update(): false|AbstractProduct;
+
     public function getCategory(): ?Category
     {
         $query = "SELECT * FROM category WHERE id = :id";
@@ -76,14 +81,6 @@ abstract class AbstractProduct extends Database
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-    abstract public function findOneById(int $id): false|AbstractProduct;
-
-    abstract public function findAll(): array;
-
-    abstract public function create(): false|AbstractProduct;
-
-    abstract public function update(): false|AbstractProduct;
 
     public function getId(): null|int
     {
